@@ -32,7 +32,7 @@ pipeline {
         stage('Git: Code Checkout') {
             steps {
                 script{
-                    code_checkout("https://github.com/harshitsahu2311/Wanderlust-GitOps-Project.git","main")
+                    code_checkout("https://github.com/sonali091023/Wanderlust-GitOps-Project.git","main")
                 }
             }
         }
@@ -97,11 +97,11 @@ pipeline {
             steps{
                 script{
                         dir('backend'){
-                            docker_build("wanderlust-backend-beta","${params.BACKEND_DOCKER_TAG}","harshitsahu2311")
+                            docker_build("wanderlust-backend-beta","${params.BACKEND_DOCKER_TAG}","sonali0910")
                         }
                     
                         dir('frontend'){
-                            docker_build("wanderlust-frontend-beta","${params.FRONTEND_DOCKER_TAG}","harshitsahu2311")
+                            docker_build("wanderlust-frontend-beta","${params.FRONTEND_DOCKER_TAG}","sonali0910")
                         }
                 }
             }
@@ -110,8 +110,8 @@ pipeline {
         stage("Docker: Push to DockerHub"){
             steps{
                 script{
-                    docker_push("wanderlust-backend-beta","${params.BACKEND_DOCKER_TAG}","harshitsahu2311") 
-                    docker_push("wanderlust-frontend-beta","${params.FRONTEND_DOCKER_TAG}","harshitsahu2311")
+                    docker_push("wanderlust-backend-beta","${params.BACKEND_DOCKER_TAG}","sonali0910") 
+                    docker_push("wanderlust-frontend-beta","${params.FRONTEND_DOCKER_TAG}","sonali0910")
                 }
             }
         }
